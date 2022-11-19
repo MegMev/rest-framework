@@ -62,7 +62,7 @@ set(SCHEMA_EVOLUTION ${REST_SE})
 
 # Switch to enable ROOT Eve functionality.
 if (NOT DEFINED REST_EVE)
-    set(REST_EVE ON)
+    set(REST_EVE ON CACHE BOOL "")
 endif ()
 if (${REST_EVE} MATCHES "ON")
     add_definitions(-DUSE_Eve)
@@ -114,7 +114,7 @@ set(external_include_dirs ${external_include_dirs} ${ROOT_INCLUDE_DIRS})
 #####  mySQL  #####
 # This is to enable linking of SQL libraries. I.e. for process TRestSQLToAnalysisProcess.
 if (NOT DEFINED REST_SQL)
-    set(REST_SQL OFF)
+    set(REST_SQL OFF CACHE BOOL "")
 endif ()
 if (${REST_SQL} MATCHES "ON")
     list(APPEND rest_features "mySQL")
@@ -130,7 +130,7 @@ endif (${REST_SQL} MATCHES "ON")
 
 #####  MPFR  #####
 if (NOT DEFINED REST_MPFR)
-    set(REST_MPFR OFF)
+    set(REST_MPFR OFF CACHE BOOL "")
 endif ()
 if (${REST_MPFR} MATCHES "ON")
     find_path(MPFR_INCLUDE mpfr.h HINTS ${MPFR_PATH} ${MPFR_PATH}/include) # path to include directory
