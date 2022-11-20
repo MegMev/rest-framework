@@ -48,4 +48,24 @@ echo " " >> ~/.bashrc
 echo ""
 echo "---------------------------------------------------------"
 
+if [ -f $HOME/.zshrc ]; then
+echo ""
+echo "---------------------------------------------------------"
+echo ""
+echo "The following line has been added to your .zshrc to setup the Geant4 environment"
+echo ""
+echo "curdir=\$(pwd)"
+echo "cd \$HOME/apps/$G4_ROOT-install/bin/"
+echo "source geant4.sh"
+echo "cd \${curdir}"
+echo " " >> ~/.zshrc
+echo "#Added by REST installGeant4.sh script to setup geant4 environment" >> ~/.zshrc
+echo "curdir=\$(pwd)" >> ~/.zshrc
+echo "cd \$HOME/apps/$G4_ROOT-install/bin/" >> ~/.zshrc
+echo "source geant4.sh" >> ~/.zshrc
+echo "cd \${curdir}" >> ~/.zshrc
+echo " " >> ~/.zshrc
+echo ""
+echo "---------------------------------------------------------"
+fi
 fi
