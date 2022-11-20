@@ -1,8 +1,9 @@
 #!/bin/bash
 
-if [ $(geant4-config --version | grep "11.0.3") ];then
+G4_VERSION=11.0.3
+if [ $(geant4-config --version | grep $G4_VERSION) ];then
 
-echo Geant4 of version 11.0.3 has already been installed
+echo "Geant4 of version $G4_VERSION has already been installed"
 echo prefix:
 echo $(geant4-config --prefix)
 echo cflags:
@@ -13,7 +14,7 @@ else
 set -e
 WP=$PWD
 
-G4_ROOT=geant4-v11.0.3
+G4_ROOT=geant4-v${G4_VERSION}
 G4_FILE=$G4_ROOT.tar.gz
 
 echo installing: $G4_ROOT
