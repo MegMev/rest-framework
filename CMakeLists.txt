@@ -225,14 +225,14 @@ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data
         DESTINATION .
         COMPONENT install
         )
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/cmake/scripts
-        DESTINATION .
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/cmake/scripts/
+        DESTINATION cmake
         COMPONENT install
         )
-file(GLOB cmake_scripts
-        "cmake/scripts/*"
+install(FILES cmake/FindSQL.cmake cmake/MacroRootDict.cmake cmake/Testing.cmake
+        DESTINATION cmake
+        COMPONENT install
         )
-install(FILES ${cmake_scripts} DESTINATION cmake)
 
 if (CMAKE_SYSTEM_NAME MATCHES "Windows") # we must call library install here in windows
     foreach (lib ${rest_libraries})
