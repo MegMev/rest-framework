@@ -98,6 +98,7 @@ export PATH=\\\$REST_PATH/bin:\\\$_PATH
 export LD_LIBRARY_PATH=\\\$REST_PATH/lib:\\\$_LD_LIBRARY_PATH
 export LIBRARY_PATH=\\\$REST_PATH/lib:\\\$LIBRARY_PATH
 export PYTHONPATH=${PYTHON_BINDINGS_INSTALL_DIR}:\\\$PYTHONPATH
+export CMAKE_PREFIX_PATH=\\\$REST_PATH/cmake:\\\$CMAKE_PREFIX_PATH
 
 alias restRoot=\\\"restRoot -l\\\"
 alias restRootMacros=\\\"restRoot -l --m 1\\\"

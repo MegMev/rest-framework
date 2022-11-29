@@ -229,10 +229,17 @@ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/cmake/scripts/
         DESTINATION cmake
         COMPONENT install
         )
-install(FILES cmake/FindSQL.cmake cmake/MacroRootDict.cmake cmake/Testing.cmake
+install(FILES cmake/MacroRootDict.cmake
         DESTINATION cmake
+        RENAME RestRootMacro.cmake
         COMPONENT install
         )
+
+install(FILES cmake/Testing.cmake
+       DESTINATION cmake
+       RENAME RestTesting.cmake
+       COMPONENT install
+      )
 
 if (CMAKE_SYSTEM_NAME MATCHES "Windows") # we must call library install here in windows
     foreach (lib ${rest_libraries})
