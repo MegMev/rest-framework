@@ -150,7 +150,7 @@
 ///
 /// A more advanced usage is sequential startup, when the metadata class contains
 /// another metadata class. We can write in the host class's InitFromConfigFile()
-/// to new the resident class, and the call the resident class's LoadConfigFromFile()
+/// to new the resident class, and the call the resident class's LoadConfigFromElement()
 /// method, giving the child section as the resident class's config section. The rml
 /// hierarchy could therefore be the same as class residence.
 ///
@@ -176,11 +176,11 @@
 ///			string value = e->Value();
 /// 		if (value == "TRestRun") {
 /// 		    fRunInfo = new TRestRun();
-/// 		    fRunInfo->LoadConfigFromFile(e, fElementGlobal);
+/// 		    fRunInfo->LoadConfigFromElement(e, fElementGlobal, {});
 ///			}
 /// 		else if (value == "TRestAnalysisPlot") {
 /// 		    fPlot = new TRestAnalysisPlot();
-/// 		    fPlot->LoadConfigFromFile(e, fElementGlobal);
+/// 		    fPlot->LoadConfigFromElement(e, fElementGlobal, {});
 ///			}
 /// 	}
 /// }
