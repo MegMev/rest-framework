@@ -578,38 +578,6 @@ Int_t TRestMetadata::LoadConfigFromFile(const string& configFilename, const stri
         GetChar();
         return -1;
     }
-
-    // find the xml section corresponding to the sectionName
-    TiXmlElement* sectional = GetElementFromFile(fConfigFileName, thisSectionName);
-    if (sectional == nullptr) {
-        RESTError << "cannot find xml section \"" << ClassName() << "\" with name \"" << thisSectionName
-                  << "\"" << RESTendl;
-        RESTError << "in config file: " << fConfigFileName << RESTendl;
-        exit(1);
-    }
-
-    // find the "globals" section. Multiple sections are supported.
-    TiXmlElement* rootEle = GetElementFromFile(fConfigFileName);
-    TiXmlElement* global = GetElement("globals", rootEle);
-    if (global != nullptr) ReadElement(global);
-    if (global != nullptr && global->NextSiblingElement("globals") != nullptr) {
-        TiXmlElement* ele = global->NextSiblingElement("globals");
-        if (ele != nullptr) ReadElement(ele);
-        while (ele != nullptr) {
-            TiXmlElement* e = ele->FirstChildElement();
-            while (e != nullptr) {
-                global->InsertEndChild(*e);
-                e = e->NextSiblingElement();
-            }
-            ele = ele->NextSiblingElement("globals");
-        }
-    }
-
-    // call the real loading method
-    int result = LoadConfigFromElement(sectional, global, {});
-    delete sectional;
-    delete rootEle;
-    return result;
 }
 
 ///////////////////////////////////////////////
