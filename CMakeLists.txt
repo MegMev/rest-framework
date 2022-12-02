@@ -1,5 +1,8 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.16)
 
+# Generate compile_commands.json by default (useful for some IDE)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
+
 PROJECT(REST)
 
 # Minimum compiler version

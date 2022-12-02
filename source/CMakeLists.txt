@@ -42,7 +42,7 @@ foreach (dir ${dirs})
     foreach (subdir ${subdirs})
         set(fullname "${dir}/${subdir}")
         DIRNAME2OPTION(option ${fullname})
-        set(${option} OFF CACHE BOOL "")
+        set(${option} ON CACHE BOOL "")
 
         file(GLOB ff "*/${subdir}/CMakeLists.txt")
         if (ff) # if dir not empty, set the option to ON
